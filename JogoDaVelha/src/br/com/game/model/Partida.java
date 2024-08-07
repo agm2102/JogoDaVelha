@@ -18,9 +18,9 @@ import javax.swing.JPanel;
  */
 public class Partida {
 
-    private final Player player1;
-    private final Player player2;
-    private final GamePartidaView gameView;
+    private Player player1;
+    private Player player2;
+    private GamePartidaView gameView;
     private Component[] container;
     private MouseListener mouseListener;
     private int numJogadas;
@@ -29,28 +29,33 @@ public class Partida {
     {"", "", ""},};
 
     public Partida(Player player1, Player player2, GamePartidaView gameView) {
-        this.numJogadas = 1;
         this.player1 = player1;
         this.player2 = player2;
         this.gameView = gameView;
-        this.gameView.setTxtPlayer1(player1.getNome() + " " + player1.getX_ou_O());
-        this.gameView.setTxtPlayer2(player2.getNome() + " " + player2.getX_ou_O());
-        esvaziaQuadros();
+    }
+    
+    
+    public void iniciarPartida() {
+        this.numJogadas = 1;
+        
         if (this.player1.isEstaNaVez()) {
             this.gameView.setTxtPlayerDaVez(this.player1.getNome());
         } else {
             this.gameView.setTxtPlayerDaVez(this.player2.getNome());
         }
-    }
-
-    public void iniciarPartida() {
+        
+        this.gameView.setTxtPlayer1(player1.getNome() + " " + player1.getX_ou_O());
+        this.gameView.setTxtPlayer2(player2.getNome() + " " + player2.getX_ou_O());
+        
+        esvaziaQuadros();
         this.gameView.setVisible(true);
         fazerJogada();
 
     }
 
-    public void reiniciarPartida(GamePartidaView gameView) {
-        
+    public void reiniciarPartida() {
+        esvaziaQuadros();
+        gameView.setTxtResultado("");
     }
 
     private void esvaziaQuadros() {
@@ -179,6 +184,7 @@ public class Partida {
                     gameView.setTxtResultado(gameView.getTxtResultado() + player2.getNome() + " Venceu a partida!");
                 }
             }
+            retiraTodosMouseListeners();
         } else if (possibilidadeHorizont2.equals("XXX") || possibilidadeHorizont2.equals("OOO")) {
             if (possibilidadeHorizont2.contains("X")) {
                 if ("X".equals(player1.getX_ou_O())) {
@@ -193,6 +199,7 @@ public class Partida {
                     gameView.setTxtResultado(gameView.getTxtResultado() + player2.getNome() + " Venceu a partida!");
                 }
             }
+            retiraTodosMouseListeners();
         } else if (possibilidadeHorizont3.equals("XXX") || possibilidadeHorizont3.equals("OOO")) {
             if (possibilidadeHorizont3.contains("X")) {
                 if ("X".equals(player1.getX_ou_O())) {
@@ -207,6 +214,7 @@ public class Partida {
                     gameView.setTxtResultado(gameView.getTxtResultado() + player2.getNome() + " Venceu a partida!");
                 }
             }
+            retiraTodosMouseListeners();
         } /////////////////////////////////////////////////////////////////////////////////////////////////////////////
         else if (possibilidadeVertic1.equals("XXX") || possibilidadeVertic1.equals("OOO")) {
             if (possibilidadeVertic1.contains("X")) {
@@ -222,6 +230,7 @@ public class Partida {
                     gameView.setTxtResultado(gameView.getTxtResultado() + player2.getNome() + " Venceu a partida!");
                 }
             }
+            retiraTodosMouseListeners();
         } else if (possibilidadeVertic2.equals("XXX") || possibilidadeVertic2.equals("OOO")) {
             if (possibilidadeVertic2.contains("X")) {
                 if ("X".equals(player1.getX_ou_O())) {
@@ -236,6 +245,7 @@ public class Partida {
                     gameView.setTxtResultado(gameView.getTxtResultado() + player2.getNome() + " Venceu a partida!");
                 }
             }
+            retiraTodosMouseListeners();
         } else if (possibilidadeVertic3.equals("XXX") || possibilidadeVertic3.equals("OOO")) {
             if (possibilidadeVertic3.contains("X")) {
                 if ("X".equals(player1.getX_ou_O())) {
@@ -250,7 +260,9 @@ public class Partida {
                     gameView.setTxtResultado(gameView.getTxtResultado() + player2.getNome() + " Venceu a partida!");
                 }
             }
-        } /////////////////////////////////////////////////////////////////////////////////////////////////////////
+            retiraTodosMouseListeners();
+        } 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
         else if (possibilidadeDiagon1.equals("XXX") || possibilidadeDiagon1.equals("OOO")) {
             if (possibilidadeDiagon1.contains("X")) {
                 if ("X".equals(player1.getX_ou_O())) {
@@ -265,6 +277,7 @@ public class Partida {
                     gameView.setTxtResultado(gameView.getTxtResultado() + player2.getNome() + " Venceu a partida!");
                 }
             }
+            retiraTodosMouseListeners();
         } else if (possibilidadeDiagon2.equals("XXX") || possibilidadeDiagon2.equals("OOO")) {
             if (possibilidadeDiagon2.contains("X")) {
                 if ("X".equals(player1.getX_ou_O())) {
@@ -279,13 +292,28 @@ public class Partida {
                     gameView.setTxtResultado(gameView.getTxtResultado() + player2.getNome() + " Venceu a partida!");
                 }
             }
+            retiraTodosMouseListeners();
         } else {
             if (numJogadas == 9) {
                 gameView.setTxtResultado("O jogo deu velha, ninguem venceu a partida.");
             }
         }
     }
-
+    private void retiraTodosMouseListeners(){
+        for (Component jpanelComp : container) {
+            if (jpanelComp instanceof JPanel jPanel) {
+                jPanel.addMouseListener(mouseListener);
+                Component container2[];
+                container2 = jPanel.getComponents();
+                for (Component jlabelComp : container2) {
+                    if (jlabelComp instanceof JLabel jLabelQuadro) {
+                        jLabelQuadro.removeMouseListener(mouseListener);
+                    }
+                }
+            }
+        }
+    }
+    
     private int pegaIndiceComponente(Component[] components, Component comp) {
         for (int i = 0; i < components.length; i++) {
             if (components[i] == comp) {

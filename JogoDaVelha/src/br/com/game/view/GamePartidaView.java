@@ -353,7 +353,7 @@ public class GamePartidaView extends javax.swing.JFrame {
                     .addComponent(txtPlayer1)
                     .addComponent(txtPlayer2))
                 .addGap(150, 150, 150)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel)
                     .addComponent(txtPlayerDaVez, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -370,7 +370,8 @@ public class GamePartidaView extends javax.swing.JFrame {
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
         // TODO add your handling code here:
-        
+        GameController controller = new GameController();
+        controller.reiniciarPartida();
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
