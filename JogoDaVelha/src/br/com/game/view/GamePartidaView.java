@@ -297,11 +297,6 @@ public class GamePartidaView extends javax.swing.JFrame {
         btnReiniciar.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         btnReiniciar.setForeground(new java.awt.Color(0, 0, 0));
         btnReiniciar.setText("Reiniciar");
-        btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReiniciarActionPerformed(evt);
-            }
-        });
 
         btnMenu.setBackground(new java.awt.Color(51, 153, 255));
         btnMenu.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
@@ -367,12 +362,6 @@ public class GamePartidaView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
-        // TODO add your handling code here:
-        GameController controller = new GameController();
-        controller.reiniciarPartida();
-    }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:

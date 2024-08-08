@@ -3,14 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/User-docs/Documents/NetBeansProjects/JogoDaVelha/src/br/com/game/controller/GameController.java</file>
-            <file>file:/D:/User-docs/Documents/NetBeansProjects/JogoDaVelha/src/br/com/game/view/GameConfigurarPlayersView.java</file>
-            <file>file:/D:/User-docs/Documents/NetBeansProjects/JogoDaVelha/src/br/com/game/model/ConfigurarPlayers.java</file>
-            <file>file:/D:/User-docs/Documents/NetBeansProjects/JogoDaVelha/src/br/com/game/model/Player.java</file>
-            <file>file:/D:/User-docs/Documents/NetBeansProjects/JogoDaVelha/src/br/com/game/view/GamePartidaView.java</file>
-            <file>file:/D:/User-docs/Documents/NetBeansProjects/JogoDaVelha/src/br/com/game/view/GameMenuView.java</file>
-            <file>file:/D:/User-docs/Documents/NetBeansProjects/JogoDaVelha/src/br/com/game/model/Partida.java</file>
-            <file>file:/D:/User-docs/Documents/NetBeansProjects/JogoDaVelha/src/jogodavelha/JogoDaVelha.java</file>
+            <file>file://10.3.11.251/ads2024/60001286/Documentos/NetBeansProjects/JogoDaVelha/src/br/com/game/controller/GameController.java</file>
+            <file>file://10.3.11.251/ads2024/60001286/Documentos/NetBeansProjects/JogoDaVelha/src/br/com/game/model/Partida.java</file>
+            <file>file://10.3.11.251/ads2024/60001286/Documentos/NetBeansProjects/JogoDaVelha/src/br/com/game/view/GamePartidaView.java</file>
         </group>
     </open-files>
 </project-private>

@@ -17,9 +17,6 @@ import br.com.game.view.GamePartidaView;
  */
 public class GameController {
 
-    GamePartidaView partidaView  = new GamePartidaView();
-    Partida partida;
-
     public void abreMenu() {
         GameMenuView menuView = new GameMenuView();
         menuView.setVisible(true);
@@ -42,15 +39,11 @@ public class GameController {
         partidaView.dispose();
     }
 
-    public void iniciarPartida(Player player1, Player player2) {    
-        partida = new Partida(player1, player2, this.partidaView);
+    public void iniciarPartida(Player player1, Player player2) {
+        GamePartidaView partidaView = new GamePartidaView();
+        Partida partida = new Partida(player1, player2, partidaView);
         partida.iniciarPartida();
     }
-
-    public void reiniciarPartida() {
-        partida.reiniciarPartida();
-    }
-
     public Player salvarPlayer1(GameConfigurarPlayersView configurarPlayerView) {
         ConfigurarPlayers configurarPlayer = new ConfigurarPlayers();
         return configurarPlayer.salvarNovoPlayer(configurarPlayerView.getPlayerName1(), configurarPlayerView.getSimbolo1(), true);
